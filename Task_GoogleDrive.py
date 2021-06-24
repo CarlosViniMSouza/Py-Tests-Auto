@@ -24,3 +24,14 @@ pyautogui.hotkey('winleft', 'd')
 pyautogui.moveTo(567, 38)
 pyautogui.mouseDown()
 pyautogui.moveTo(756, 635)
+
+# Change Page:
+pyautogui.hotkey('alt', 'tab')
+
+# Index file in Google Drive:
+pyautogui.mouseUp()
+
+# Waiting...
+time.sleep(5)
+
+pyautogui.alert("Code is finish. You can back to use computer!")
