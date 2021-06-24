@@ -16,3 +16,11 @@ pyautogui.press('enter')
 time.sleep(1)
 pyautogui.write('https://drive.google.com')
 pyautogui.press('enter')
+
+# Now, in WorkSpace:
+pyautogui.hotkey('winleft', 'd')
+
+# Click in file and drag:
+pyautogui.moveTo(567, 38)
+pyautogui.mouseDown()
+pyautogui.moveTo(756, 635)
