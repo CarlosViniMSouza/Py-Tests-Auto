@@ -1,11 +1,15 @@
-# content of test_sample.py
-def inc(x):
-    return (x ** 2) + 1
+import pytest
+import smtplib
 
-# Test1 : Fail
-def test_answer():
-    assert inc(3) == 15
+@pytest.fixture(scope="module")
+def smtp_connection():
+    return smtplib.SMTP("smtp.gmail.com", 585, timeout=5)
 
-# Test2 : Passed
-def test_answer2():
-    assert inc(5) == 26
+def test_echo(smtp_connection):
+    response, msg = smtp_connection.ehlo()
+    assert response == 300
+    assert b"smtp.gmail.com" in msg
+
+def test_noop(smtp_connection):
+    response, msg = smtp_connection.noop()
+    assert response == 300
